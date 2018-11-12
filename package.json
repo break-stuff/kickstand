@@ -1,0 +1,30 @@
+{
+	"name": "kickstand",
+	"version": "0.1.0",
+	"description": "A Vue.js UI library.",
+	"main": "index.js",
+	"scripts": {
+		"dev": "cross-env NODE_ENV=development webpack-dev-server --progress --open --hot --mode development",
+		"build": "cross-env NODE_ENV=production webpack --progress --hide-modules -p --mode production"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"autoprefixer": "^9.3.1",
+		"clean-webpack-plugin": "^1.0.0",
+		"cross-env": "^5.2.0",
+		"css-loader": "^1.0.1",
+		"cssnano": "^4.1.7",
+		"html-webpack-plugin": "^3.2.0",
+		"mini-css-extract-plugin": "^0.4.4",
+		"node-sass": "^4.10.0",
+		"pixrem": "^4.0.1",
+		"postcss-loader": "^3.0.0",
+		"sass-loader": "^7.1.0",
+		"style-loader": "^0.23.1",
+		"webpack": "^4.25.1",
+		"webpack-cli": "^3.1.2",
+		"webpack-dev-server": "^3.1.10"
+	}
+}
