@@ -1,0 +1,10 @@
+@import '../variables';
+
+@function spacing($name) {
+    @if map-has-key($spacing-sizes, $name) {
+        @return map-get($spacing-sizes, $name);
+    } 
+    @else {
+        @warn "Invalid spacing size: `#{$name}`.";
+    }
+}

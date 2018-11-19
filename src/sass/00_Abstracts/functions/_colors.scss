@@ -1,0 +1,56 @@
+@import '../variables';
+
+@function build-pallet() {
+    $result: ();
+
+    @each $key, $value in $theme-colors {
+        $group: ($key: (
+            'base': $value,
+            'light': lighten($value, $color-variation),
+            'lighter': lighten($value, $color-variation * 2),
+            'dark': darken($value, $color-variation)),
+            'darker': darken($value, $color-variation * 2)
+        );
+
+        $result: map-merge($result, $group);
+    }
+
+    @return $result;
+}
+
+$color-pallette: build-pallet();
+
+/*
+    usage:
+        // for the base color
+        color(primary);
+
+        // for vairations of a color
+        color(primary, lighter);
+        color(primary, light);
+        color(primary, dark);
+        color(primary, darker);
+*/
+@function color($name: 'primary', $variant: 'base') {
+    $color: null;
+
+    // Get the color name
+    $color-name: map-get($color-pallette, $name);
+
+    // Get the color variant
+    @if $color-name {
+        $color: map-get($color-name, $variant);
+
+        @if $color {
+            @return $color;
+        }
+        @else {
+            @warn "Invalid color variation: `#{$name}, #{$variant}`.";
+        }
+    }
+    @else {
+        @warn "Invalid color name: `#{$name}`.";
+    }
+
+    @return $color;
+}

@@ -2,7 +2,7 @@
 
 //   FONTS
 
-$font-default:
+$font-family-sans-serif:
     // Safari for OS X and iOS (San Francisco)
     -apple-system,
     // Chrome < 56 for OS X (San Francisco)
@@ -17,3 +17,55 @@ $font-default:
     "Apple Color Emoji", 
     "Segoe UI Emoji", 
     "Segoe UI Symbol" !default;
+
+
+$font-family-monospace: 
+    SFMono-Regular, 
+    Menlo, 
+    Monaco, 
+    Consolas, 
+    "Liberation Mono", 
+    "Courier New", 
+    monospace !default;
+
+// SPACING
+
+$spacing-sizes: (
+    xxs: 0.125rem,
+    xs: 0.25rem,
+    sm: 0.5rem,
+    md: 0.75rem,
+    lg: 1rem,
+    xl: 1.25rem,
+    xxl: 2rem
+) !default;
+
+
+// COLORS
+
+$theme-colors: (
+    'primary': #005db9,
+    'secondary': #cd7641,
+    'default': #ccc,
+    'success': #657f42,
+    'info': #663fb2,
+    'warning': #977009,
+    'danger': #c84042,
+    'light': #a0a0a0,
+    'dark': #414042,
+    'black': #000,
+    'white': #fff
+) !default;
+
+$color-variation: 10%;
+
+
+// BREAKPOINTS
+
+$breakpoints: (
+    xs: 480px,
+    sm: 768px,
+    md: 992px,
+    lg: 1200px,
+    xl: 1440px
+) !default;
