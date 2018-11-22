@@ -1,4 +1,7 @@
 @import '_variables.scss';
 @import 'functions/_spacing.scss';
 @import 'functions/_colors.scss';
-@import 'functions/_breakpoints.scss';
+@import 'mixins/_breakpoints.scss';
+@import 'mixins/_spacing.scss';
+@import 'mixins/_hover.scss';
+@import 'functions/_z-index.scss';

@@ -5,11 +5,12 @@
 
     @each $key, $value in $theme-colors {
         $group: ($key: (
-            'base': $value,
-            'light': lighten($value, $color-variation),
-            'lighter': lighten($value, $color-variation * 2),
-            'dark': darken($value, $color-variation)),
-            'darker': darken($value, $color-variation * 2)
+                'base': $value,
+                'light': lighten($value, $color-variation),
+                'lighter': lighten($value, $color-variation * 2),
+                'dark': darken($value, $color-variation),
+                'darker': darken($value, $color-variation * 2)
+            )
         );
 
         $result: map-merge($result, $group);
@@ -25,7 +26,7 @@ $color-pallette: build-pallet();
         // for the base color
         color(primary);
 
-        // for vairations of a color
+        // for variations of a color
         color(primary, lighter);
         color(primary, light);
         color(primary, dark);
@@ -35,7 +36,7 @@ $color-pallette: build-pallet();
     $color: null;
 
     // Get the color name
-    $color-name: map-get($color-pallette, $name);
+    $color-name: map-get($color-pallette, $name + unquote(""));
 
     // Get the color variant
     @if $color-name {
@@ -45,11 +46,11 @@ $color-pallette: build-pallet();
             @return $color;
         }
         @else {
-            @warn "Invalid color variation: `#{$name}, #{$variant}`.";
+            @error "Invalid color variation: `#{$name}, #{$variant}`.";
         }
     }
     @else {
-        @warn "Invalid color name: `#{$name}`.";
+        @error "Invalid color name: `#{$name}`.";
     }
 
     @return $color;
