@@ -31,7 +31,7 @@
 //     }
 // }
 
-@mixin m($top: auto, $bottom: auto, $left: auto, $right: auto) {
+@mixin m($top: auto, $bottom: null, $left: null, $right: null) {
     @if ($top and not $bottom and not $left and not $right) {
         @include mx($top);
         @include my($top);
@@ -93,11 +93,18 @@
     margin-bottom: spacing($size);
 }
 
-@mixin p($top: auto, $bottom: auto, $left: auto, $right: auto) {
+@mixin p($top: auto, $bottom: null, $left: null, $right: null) {
+    @if ($top and not $bottom and not $left and not $right) {
+        @include px($top);
+        @include py($top);
+    }
+
+    @else {
         @include pt($top);
         @include pb($bottom);
         @include pl($left);
         @include pr($right);
+    }
 }
 
 @mixin px($left: auto, $right: null) {

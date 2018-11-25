@@ -3,15 +3,13 @@
 @function build-pallet() {
     $result: ();
 
-    @each $key, $value in $theme-colors {
-        $group: ($key: (
-                'base': $value,
-                'light': lighten($value, $color-variation),
-                'lighter': lighten($value, $color-variation * 2),
-                'dark': darken($value, $color-variation),
-                'darker': darken($value, $color-variation * 2)
-            )
-        );
+    @each $key,
+    $value in $theme-colors {
+        $group: ($key: ('base': $value,
+            'light': lighten($value, $color-variation),
+            'lighter': lighten($value, $color-variation * 2),
+            'dark': darken($value, $color-variation),
+            'darker': darken($value, $color-variation * 2)));
 
         $result: map-merge($result, $group);
     }
@@ -45,13 +43,25 @@ $color-pallette: build-pallet();
         @if $color {
             @return $color;
         }
+
         @else {
             @error "Invalid color variation: `#{$name}, #{$variant}`.";
         }
     }
+
     @else {
         @error "Invalid color name: `#{$name}`.";
     }
 
     @return $color;
+}
+
+@function text-color($name: 'primary', $variant: 'base') {
+    @if (lightness(color($name, $variant)) > 33) {
+        @return color($name, darker); // Lighter backgorund, return dark color
+    }
+
+    @else {
+        @return color(white); // Darker background, return light color
+    }
 }
