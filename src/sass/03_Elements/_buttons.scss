@@ -1,2 +1,54 @@
 @import "../00_Abstracts/index.scss";
 
+.button {
+    border: 0 solid transparent;
+    border-radius: $border-radius-base;
+    @include p(md);
+
+    @include hover {
+        cursor: pointer;
+    }
+
+    @each $color,
+    $value in $theme-colors {
+        &.button--#{$color} {
+            background-color: color($color);
+            border: solid 2px color($color);
+            color: text-color($color);
+
+            @include hover-focus {
+                background-color: color($color, light);
+                border: solid 2px color($color, light);
+                color: text-color($color, light);
+            }
+
+            &:disabled {
+                background-color: color($color, lighter);
+                border: solid 2px color($color, lighter);
+                color: text-color($color, lighter);
+
+                @include hover-focus {
+                    cursor: not-allowed;
+                }
+            }
+
+            &.button--hollow {
+                background-color: color(white);
+                border: solid 2px color($color);
+                color: color($color);
+
+                @include hover-focus {
+                    border: solid 2px color($color, light);
+                    color: color($color, light);
+                }
+            }
+        }
+    }
+
+    @each $size,
+    $value in $spacing-sizes {
+        &.button--#{$size} {
+            @include p($size);
+        }
+    }
+}
