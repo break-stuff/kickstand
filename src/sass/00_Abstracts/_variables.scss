@@ -1,6 +1,5 @@
 //   FONTS
 
-
 $font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, Noto Sans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base: $font-family-sans-serif !default;
@@ -30,20 +29,20 @@ $spacing-sizes: (
 // COLORS
 
 $theme-colors: (
-    'primary': #005db9,
-    'secondary': #cd7641,
-    'default': #ccc,
-    'success': #657f42,
-    'info': #663fb2,
-    'warning': #977009,
-    'danger': #c84042,
-    'light': #a0a0a0,
-    'dark': #414042,
+    'primary': #ca4800,
+    'secondary': #0971b2,
+    'default': #6c757d,
+    'success': #6f943e,
+    'info': #4f9acc,
+    'warning': #ffc107,
+    'danger': #ff0000,
+    'light': #f8f9fa,
+    'dark': #343a40,
     'black': #000,
     'white': #fff
 ) !default;
 
-$color-variation: 15%;
+$color-variation: 8%;
 
 
 // BREAKPOINTS
@@ -68,3 +67,9 @@ $z-indexes: (
     popover: 1060,
     tooltip: 1070
 ) !default;
+
+
+// BORDERS
+
+$border-radius-base: 0;
+$active-border: '';
