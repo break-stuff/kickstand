@@ -30,7 +30,7 @@ $color-pallette: build-pallet();
         color(primary, dark);
         color(primary, darker);
 */
-@function color($name: 'primary', $variant: 'base') {
+@function color($name: 'primary', $variant: 'base', $opacity: 1) {
     $color: null;
 
     // Get the color name
@@ -41,7 +41,7 @@ $color-pallette: build-pallet();
         $color: map-get($color-name, $variant);
 
         @if $color {
-            @return $color;
+            @return rgba($color, $opacity);
         }
 
         @else {

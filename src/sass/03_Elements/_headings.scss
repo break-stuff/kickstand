@@ -1,2 +1,25 @@
 @import "../00_Abstracts/index.scss";
 
+h1 {
+    @include font-size(xxl);
+}
+
+h2 { 
+    @include font-size(xl);
+}
+
+h3 {
+    @include font-size(lg);
+}
+
+h4 {
+    @include font-size(md);
+}
+
+h5 {
+    @include font-size(sm);
+}
+
+h6 {
+    @include font-size(xs);
+}

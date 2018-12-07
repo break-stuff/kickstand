@@ -3,14 +3,43 @@
 .alert {
     align-items: center;
     border: 1px solid transparent;
-    border-radius: $border-radius-base;
     display: flex;
     flex-direction: row;
     justify-content: center;
     position: relative;
+    @include border-radius(sm);
     @include p(lg);
     @include mb(lg);
 
+    @each $color, $value in $theme-colors {
+        &.#{$color} {
+            background-color: color(white);
+            border: 1px solid color($color);
+            color: color($color);
+    
+            &.fill {
+                background-color: color($color);
+                color: text-color($color);
+    
+                .alert-dismiss-icon {
+                    color: text-color($color);
+                }
+            }
+    
+            .alert-dismiss {
+                color: color($color);
+    
+                @include hover-focus {
+                    font-weight: bolder;
+    
+                    .alert-dismiss-icon {
+                        font-size: 110%;
+                    }
+                }
+            }
+        }
+    }
+    
     &-icon {
         @include mr(sm);
     }
@@ -36,6 +65,7 @@
         top: 0;
         transform: translate(-50%);
         @include mt(lg);
+        @include box-shadow(md);
 
         &-left {
             left: 0;
@@ -43,6 +73,7 @@
             top: 0;
             @include ml(lg);
             @include mt(lg);
+            @include box-shadow(md);
         }
 
         &-right {
@@ -51,6 +82,7 @@
             top: 0;
             @include mr(lg);
             @include mt(lg);
+            @include box-shadow(md);
         }
     }
 
@@ -60,12 +92,14 @@
         position: fixed;
         transform: translate(-50%);
         @include mb(lg);
+        @include box-shadow(md);
 
         &-left {
             bottom: 0;
             left: 0;
             position: fixed;
             @include ml(lg);
+            @include box-shadow(md);
         }
 
         &-right {
@@ -73,36 +107,8 @@
             position: fixed;
             right: 0;
             @include mr(lg);
+            @include box-shadow(md);
         }
     }
 }
 
-@each $color, $value in $theme-colors {
-    .alert-#{$color} {
-        background-color: color(white);
-        border: 1px solid color($color);
-        color: color($color);
-
-
-        &.fill {
-            background-color: color($color);
-            color: text-color($color);
-
-            .alert-dismiss-icon {
-                color: text-color($color);
-            }
-        }
-
-        .alert-dismiss {
-            color: color($color);
-
-            @include hover-focus {
-                font-weight: bolder;
-
-                .alert-dismiss-icon {
-                    font-size: 110%;
-                }
-            }
-        }
-    }
-}

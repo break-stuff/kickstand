@@ -2,16 +2,19 @@
 
 .button {
     border: 0 solid transparent;
-    border-radius: $border-radius-base;
+    @include border-radius(sm);
+    @include box-shadow(sm);
     @include p(md);
+    @include transition-ease-in-out();
 
     @include hover {
         cursor: pointer;
+        @include box-shadow(md);
     }
 
     @each $color,
     $value in $theme-colors {
-        &.button--#{$color} {
+        &.#{$color} {
             background-color: color($color);
             border: solid 2px color($color);
             color: text-color($color);
@@ -32,7 +35,7 @@
                 }
             }
 
-            &.button--hollow {
+            &.hollow {
                 background-color: color(white);
                 border: solid 2px color($color);
                 color: color($color);
@@ -45,10 +48,35 @@
         }
     }
 
-    @each $size,
-    $value in $spacing-sizes {
-        &.button--#{$size} {
-            @include p($size);
+    &.link {
+        background-color: color(white);
+        border: solid 2px transparent;
+        color: color(primary);
+        box-shadow: none;
+
+        @include hover-focus {
+            color: color(primary, light);
+        }
+
+        &:disabled {
+            color: color(primary, lighter, .6);
+
+            @include hover {
+                cursor: not-allowed;
+            }
         }
     }
-}
+
+
+        @each $size,
+        $value in $spacing-sizes {
+            &.#{$size} {
+                @include p($size);
+                @include font-size($size);
+            }
+        }
+
+        &.expanded {
+            width: 100%;
+        }
+    }

@@ -1,6 +1,13 @@
 <template>
     <div id="app">
-        <button class="button button--primary" @click="toggleAlert">Toggle Alert</button>
+        <h1>H1 Tag</h1>
+        <h2>H2 Tag</h2>
+        <h3>H3 Tag</h3>
+        <h4>H4 Tag</h4>
+        <h5>H5 Tag</h5>
+        <h6>H6 Tag</h6>
+        <br>
+        <button class="button primary" @click="toggleAlert">Toggle Alert</button>
         <br>
         <br>
         <br>
@@ -21,7 +28,7 @@
             alert-variation="primary"
             position="bottom-left"
         >This is just a test for "bottom-left"!</alert>
-        <alert
+        <!-- <alert
             :dismissible="true"
             alert-icon="fas fa-exclamation-triangle"
             dismiss-icon="fas fa-times"
@@ -48,7 +55,7 @@
             dismiss-icon="fas fa-times"
             alert-variation="primary"
             position="top"
-        >This is just a test for "top"!</alert>
+        >This is just a test for "top"!</alert> -->
 
         <div v-for="variation in variations" :key="'button-' + variation">
             <link-button :variation="variation">Button for {{ variation }}</link-button>
@@ -57,6 +64,11 @@
         </div>
         <div v-for="variation in variations" :key="'button-hollow-' + variation">
             <link-button :variation="variation" hollow>Button for hollow {{ variation }}</link-button>
+            <br>
+            <br>
+        </div>
+        <div v-for="size in sizes" :key="'button-' + size">
+            <link-button variation="secondary" :size="size" expanded>Button for {{ size }}</link-button>
             <br>
             <br>
         </div>
@@ -88,10 +100,17 @@ export default class App extends Vue {
         'light',
         'dark',
         'black',
-        'white'
+        'white',
+        'link'
     ];
 
-    sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+    sizes = [
+      'xs', 
+      'sm', 
+      'md', 
+      'lg', 
+      'xl'
+    ];
 
     alertIsShown = false;
 

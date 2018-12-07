@@ -1,5 +1,5 @@
 <template>
-    <button :class="['button', `button--${variation}`, {'button--hollow': hollow}]">
+    <button :class="['button', variation, {'hollow': hollow}, size, {'expanded': expanded}]">
         <slot />
     </button>
 </template>
@@ -13,8 +13,14 @@ export default class LinkButton extends Vue {
     @Prop(String)
     private variation!: string;
 
+    @Prop(String)
+    private size!: string;
+
     @Prop(Boolean)
     private hollow!: boolean;
+
+    @Prop(Boolean)
+    private expanded!: boolean;
 
     // data
 
