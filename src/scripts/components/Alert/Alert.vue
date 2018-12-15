@@ -3,6 +3,7 @@
         <div
             v-if="show"
             :class="['alert', alertVariation, {'fill': fill}, position, {'dismissible': dismissible}]"
+            role="alert"
         >
             <i class="alert-icon" v-if="alertIcon" :class="alertIcon"></i>
             <p class="alert-text">
