@@ -1,0 +1,18 @@
+@import "../00_Abstracts/index.scss";
+
+.breadcrumbs {
+    background-color: color(light);
+    @include p(md);
+    @include border-radius(sm);
+
+    .breadcrumb-item+.breadcrumb-item {
+        @include pl(sm);
+
+        &::before {
+            display: inline-block;
+            @include pr(sm);
+            color: color(black);
+            content: "/";
+        }
+    }
+}
