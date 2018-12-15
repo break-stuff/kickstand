@@ -1,5 +1,11 @@
 <template>
     <div id="app">
+        <breadcrumbs>
+          <breadcrumb-item url="/">Home</breadcrumb-item>
+          <breadcrumb-item url="/">About</breadcrumb-item>
+          <breadcrumb-item url="/" active>Test</breadcrumb-item>
+
+        </breadcrumbs>
         <h1>H1 Tag</h1>
         <h2>H2 Tag</h2>
         <h3>H3 Tag</h3>
@@ -79,12 +85,15 @@
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
 import Alert from './components/Alert';
+import { Breadcrumbs, BreadcrumbItem } from './components/Breadcrumbs';
 import LinkButton from './components/LinkButton';
 
 @Component({
     components: {
         HelloWorld,
         Alert,
+        Breadcrumbs,
+        BreadcrumbItem,
         LinkButton
     }
 })
