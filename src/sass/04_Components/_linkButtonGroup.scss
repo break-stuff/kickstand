@@ -21,7 +21,7 @@
 
     &:not(.column) {
         .button+.button {
-            margin-left: -0.125rem;
+            @include ml(-xxs);
         }
     }
 
