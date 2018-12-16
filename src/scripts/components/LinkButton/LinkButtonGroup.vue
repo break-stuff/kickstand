@@ -1,5 +1,7 @@
 <template>
-
+    <div :class="['link-button-group', {'column': column}, {'expand': expand}]">
+        <slot></slot>
+    </div>
 </template>
 
 <script lang="ts">
@@ -8,24 +10,17 @@ import { Component, Prop, Vue } from 'vue-property-decorator';
 @Component
 export default class LinkButtonGroup extends Vue {
     // props
-    @Prop() 
-    private title!: string;
+    @Prop(Boolean) 
+    private column!: boolean;
+
+    @Prop(Boolean) 
+    private expand!: boolean;
 
     // data
-    message = 'Hello';
 
     // computed
-    get reverseMessage() {
-        return this.message
-            .split('')
-            .reverse()
-            .join('');
-    }
 
     // methods
-    changeMessage() {
-         this.message = 'Good bye';
-    }
 
     // Lifecycle hooks
     created() {}

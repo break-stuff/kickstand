@@ -74,10 +74,70 @@
             <br>
         </div>
         <div v-for="size in sizes" :key="'button-' + size">
-            <link-button variation="secondary" :size="size" expanded>Button for {{ size }}</link-button>
+            <link-button variation="secondary" :size="size">Button for {{ size }}</link-button>
             <br>
             <br>
         </div>
+        <div>
+            <link-button variation="secondary" expanded>Expanded Button</link-button>
+            <br>
+            <br>
+        </div>
+        <div>
+            <link-button-group>
+                <link-button variation="secondary">left</link-button>
+                <link-button variation="secondary">middle</link-button>
+                <link-button variation="secondary">right</link-button>
+            </link-button-group>
+            <br>
+            <br>
+        </div>
+        <div>
+            <link-button-group>
+                <link-button variation="secondary" hollow>left</link-button>
+                <link-button variation="secondary" hollow>middle</link-button>
+                <link-button variation="secondary" hollow>right</link-button>
+            </link-button-group>
+            <br>
+            <br>
+        </div>
+        <div>
+            <link-button-group expand>
+                <link-button variation="secondary" hollow>left</link-button>
+                <link-button variation="secondary" hollow>middle</link-button>
+                <link-button variation="secondary" hollow>right</link-button>
+            </link-button-group>
+            <br>
+            <br>
+        </div>
+        <div>
+            <link-button-group column>
+                <link-button variation="secondary">top</link-button>
+                <link-button variation="secondary">middle</link-button>
+                <link-button variation="secondary">bottom</link-button>
+            </link-button-group>
+            <br>
+            <br>
+        </div>
+        <div>
+            <link-button-group column>
+                <link-button variation="secondary" hollow>top</link-button>
+                <link-button variation="secondary" hollow>middle</link-button>
+                <link-button variation="secondary" hollow>bottom</link-button>
+            </link-button-group>
+            <br>
+            <br>
+        </div>
+        <div>
+            <link-button-group column expand>
+                <link-button variation="secondary" hollow>top</link-button>
+                <link-button variation="secondary" hollow>middle</link-button>
+                <link-button variation="secondary" hollow>bottom</link-button>
+            </link-button-group>
+            <br>
+            <br>
+        </div>
+
     </div>
 </template>
 
@@ -86,7 +146,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
 import Alert from './components/Alert';
 import { Breadcrumbs, BreadcrumbItem } from './components/Breadcrumbs';
-import LinkButton from './components/LinkButton';
+import { LinkButton, LinkButtonGroup } from './components/LinkButton';
 
 @Component({
     components: {
@@ -94,7 +154,8 @@ import LinkButton from './components/LinkButton';
         Alert,
         Breadcrumbs,
         BreadcrumbItem,
-        LinkButton
+        LinkButton,
+        LinkButtonGroup
     }
 })
 export default class App extends Vue {

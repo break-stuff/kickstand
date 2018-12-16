@@ -1,0 +1,52 @@
+@import "../00_Abstracts/index";
+
+.link-button-group {
+    display: inline-flex;
+    @include border-radius(sm);
+    @include box-shadow(sm);
+
+    .button {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .button:first-child {
+        @include border-radius-left(sm);
+    }
+
+    .button:last-child {
+        @include border-radius-right(sm);
+    }
+
+    &:not(.column) {
+        .button+.button {
+            margin-left: -0.125rem;
+        }
+    }
+
+    &.column {
+        flex-direction: column;
+
+        .button+.button {
+            margin-bottom: -0.125rem;
+        }
+
+        .button:first-child {
+            margin-bottom: -0.125rem;
+            @include border-radius-top(sm);
+        }
+    
+        .button:last-child {
+            @include border-radius-bottom(sm);
+        }
+    }
+
+    &.expand {
+        width: 100%;
+
+        .button {
+            width: 100%;
+        }
+    }
+}
