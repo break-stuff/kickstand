@@ -83,6 +83,7 @@
             <br>
             <br>
         </div>
+            <media-image lazy source="http://cosblog.cosmelentertainment.com/wp-content/uploads/2012/01/Dwight-Schrute.jpg" alt-text="Dwight, from the office" />
         <div>
             <link-button-group>
                 <link-button variation="secondary">left</link-button>
@@ -137,7 +138,6 @@
             <br>
             <br>
         </div>
-
     </div>
 </template>
 
@@ -146,6 +146,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
 import Alert from './components/Alert';
 import { Breadcrumbs, BreadcrumbItem } from './components/Breadcrumbs';
+import MediaImage from './components/Media';
 import { LinkButton, LinkButtonGroup } from './components/LinkButton';
 
 @Component({
@@ -154,6 +155,7 @@ import { LinkButton, LinkButtonGroup } from './components/LinkButton';
         Alert,
         Breadcrumbs,
         BreadcrumbItem,
+        MediaImage,
         LinkButton,
         LinkButtonGroup
     }
