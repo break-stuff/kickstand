@@ -1,0 +1,91 @@
+@import "../00_Abstracts/index.scss";
+
+$card-border-radius: sm;
+
+.card {
+    display: flex;
+    position: relative;
+    border: solid 1px color(dark, lighter);
+    @include border-radius($card-border-radius);
+
+    &.image {
+        &-top {
+            flex-direction: column;
+            .image-tag {
+                @include border-radius-top($card-border-radius);
+            }
+        }
+
+        &-left {
+            flex-direction: row;
+            .image-tag {
+                @include border-radius-left($card-border-radius);
+            }
+        }
+
+        &-right {
+            flex-direction: row-reverse;
+            .image-tag {
+                @include border-radius-right($card-border-radius);
+            }
+        }
+
+        &-bottom {
+            flex-direction: column-reverse;
+            .image-tag {
+                @include border-radius-left($card-border-radius);
+            }
+        }
+
+        &-overlay {
+            .card-image {
+                position: relative;
+                .image-tag {
+                    @include border-radius($card-border-radius);
+                }    
+            }
+
+            .card-body {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            }
+        }
+    }
+
+    &.card-image {
+        width: 100%;
+
+        .image-tag {
+            width: 100%;
+        }
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @include p(lg);
+
+        &.align {
+            &-top {
+                align-self: flex-start;
+            }
+
+            &-middle {
+
+            }
+
+            &-bottom {
+                align-self: flex-end;
+            }
+
+            &-fill {
+                justify-content: space-between;
+            }
+        }
+    }
+}

@@ -83,7 +83,6 @@
             <br>
             <br>
         </div>
-            <media-image lazy source="http://cosblog.cosmelentertainment.com/wp-content/uploads/2012/01/Dwight-Schrute.jpg" alt-text="Dwight, from the office" />
         <div>
             <link-button-group>
                 <link-button variation="secondary">left</link-button>
@@ -103,7 +102,7 @@
             <br>
         </div>
         <div>
-            <link-button-group expand>
+            <link-button-group expanded>
                 <link-button variation="secondary" hollow>left</link-button>
                 <link-button variation="secondary" hollow>middle</link-button>
                 <link-button variation="secondary" hollow>right</link-button>
@@ -138,6 +137,27 @@
             <br>
             <br>
         </div>
+        <card style="max-width:18rem;" image-position="top">
+            <card-image source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg" lazy />
+            <card-body>
+                <h3>Test Card</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+            </card-body>
+        </card>
+        <card style="max-width:50%;" image-position="left">
+            <card-image source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg" lazy cover />
+            <card-body>
+                <h3>Test Card</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+            </card-body>
+        </card>
+        <card style="max-width:50%;color:white;" image-position="overlay">
+            <card-image source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg" lazy />
+            <card-body position="top">
+                <h3>Test Card</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+            </card-body>
+        </card>
     </div>
 </template>
 
@@ -148,6 +168,7 @@ import Alert from './components/Alert';
 import { Breadcrumbs, BreadcrumbItem } from './components/Breadcrumbs';
 import MediaImage from './components/Media';
 import { LinkButton, LinkButtonGroup } from './components/LinkButton';
+import { Card, CardImage, CardBody } from './components/Card';
 
 @Component({
     components: {
@@ -157,7 +178,10 @@ import { LinkButton, LinkButtonGroup } from './components/LinkButton';
         BreadcrumbItem,
         MediaImage,
         LinkButton,
-        LinkButtonGroup
+        LinkButtonGroup,
+        Card,
+        CardImage,
+        CardBody
     }
 })
 export default class App extends Vue {
