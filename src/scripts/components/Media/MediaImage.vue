@@ -1,16 +1,16 @@
 <template>
     <div class="media-image">
-        <picture :class="['image', {'lazy-image': lazy}, {'cover': cover}]">
-            <source v-if="sourceList" :srcset="sourceList.srcset" :media="sourceList.media">
-            <img v-if="!lazy" class="image-tag" :src="source" :alt="altText" :srcset="sourceSet">
+        <picture :class="['image', {'lazy-image': lazy}]">
+            <source v-if="imgSourceList" :srcset="imgSourceList.srcset" :media="imgSourceList.media">
+            <img :class="['image-tag', {'cover': cover}]" :src="imgSource" :alt="altText" :srcset="imgSourceSet">
         </picture>
     </div>
 </template>
 
 <script lang="ts">
+// @ts-ignore
+import objectFitImages from 'object-fit-images';
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import madiaService from './mediaService';
-import mediaService from './mediaService';
 
 @Component
 export default class MediaImage extends Vue {
@@ -22,10 +22,13 @@ export default class MediaImage extends Vue {
     private sourceSet!: string;
 
     @Prop(String)
-    private sourceList!: Array<{srcset: string, media: string}>;
+    private sourceList!: Array<{ srcset: string; media: string }>;
 
     @Prop(String)
     private altText!: string;
+
+    @Prop({default: '300'})
+    private threshold!: string;
 
     @Prop(Boolean)
     private lazy!: boolean;
@@ -34,17 +37,54 @@ export default class MediaImage extends Vue {
     private cover!: boolean;
 
     // data
+    observer: any;
+    isLoaded: boolean = false;
 
     // computed
+    get imgSourceList() {
+        return (!this.lazy || this.isLoaded) ? this.sourceList : null;
+    }
+
+    get imgSource() {
+        return (!this.lazy || this.isLoaded) ? this.source : null;
+    }
+
+    get imgSourceSet() {
+        return (!this.lazy || this.isLoaded) ? this.sourceSet : null;
+    }
 
     // methods
+    lazyLoadImage() {
+        this.observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    const { isIntersecting } = entry;
+                    if (isIntersecting) {
+                        this.isLoaded = true;
+                        this.observer = this.observer.disconnect();
+                    }
+                });
+            },
+            {
+                rootMargin: `${this.threshold}px 0px`
+            }
+        );
+
+        this.observer.observe(this.$el);
+    }
+
+    setObjectFitListener() {
+        const images = document.querySelectorAll('img.cover');
+        objectFitImages(images);
+    }
+
 
     // Lifecycle hooks
-    created() {
-        mediaService.setLazyLoadImageObserver(this.sourceList, this.sourceSet, this.source);
-        mediaService.setObjectFitListener();
+    created() {}
+    mounted() {
+        this.lazyLoadImage();
+        this.setObjectFitListener();
     }
-    mounted() {}
     updated() {}
     destroyed() {}
 }
