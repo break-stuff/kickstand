@@ -1,5 +1,5 @@
 <template>
-    <div :class="['link-button-group', {'column': column}, {'expanded': expanded}]">
+    <div :class="['button-group', {'column': column}, {'expanded': expanded}]">
         <slot></slot>
     </div>
 </template>

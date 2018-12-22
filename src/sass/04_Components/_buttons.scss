@@ -1,8 +1,10 @@
 @import "../00_Abstracts/index.scss";
 
+$button-border-radius: sm;
+
 .button {
     border: 0 solid transparent;
-    @include border-radius(sm);
+    @include border-radius($button-border-radius);
     @include box-shadow(sm);
     @include p(md);
     @include transition-ease-in-out();
@@ -76,5 +78,57 @@
 
     &.expanded {
         width: 100%;
+    }
+}
+
+
+.button-group {
+    display: inline-flex;
+    @include border-radius($button-border-radius);
+    @include box-shadow(sm);
+
+    .button {
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .button:first-child {
+        @include border-radius-left($button-border-radius);
+    }
+
+    .button:last-child {
+        @include border-radius-right($button-border-radius);
+    }
+
+    &:not(.column) {
+        .button+.button {
+            @include ml(-xxs);
+        }
+    }
+
+    &.column {
+        flex-direction: column;
+
+        .button+.button {
+            @include mb(-xxs);
+        }
+
+        .button:first-child {
+            @include mb(-xxs);
+            @include border-radius-top($button-border-radius);
+        }
+    
+        .button:last-child {
+            @include border-radius-bottom($button-border-radius);
+        }
+    }
+
+    &.expanded {
+        width: 100%;
+
+        .button {
+            width: 100%;
+        }
     }
 }
