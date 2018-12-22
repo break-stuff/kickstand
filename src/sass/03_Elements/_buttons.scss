@@ -12,8 +12,7 @@
         @include box-shadow(md);
     }
 
-    @each $color,
-    $value in $theme-colors {
+    @each $color, $value in $theme-colors {
         &.#{$color} {
             background-color: color($color);
             border: solid 2px color($color);
@@ -49,7 +48,7 @@
     }
 
     &.link {
-        background-color: color(white);
+        background-color: transparent;
         border: solid 2px transparent;
         color: color(primary);
         box-shadow: none;
@@ -68,15 +67,14 @@
     }
 
 
-        @each $size,
-        $value in $spacing-sizes {
-            &.#{$size} {
-                @include p($size);
-                @include font-size($size);
-            }
-        }
-
-        &.expanded {
-            width: 100%;
+    @each $size, $value in $spacing-sizes {
+        &.#{$size} {
+            @include p($size);
+            @include font-size($size);
         }
     }
+
+    &.expanded {
+        width: 100%;
+    }
+}
