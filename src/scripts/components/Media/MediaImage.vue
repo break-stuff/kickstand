@@ -1,8 +1,8 @@
 <template>
     <div class="media-image">
-        <picture :class="['image', {'lazy-image': lazy}]">
+        <picture :class="['media-picture', {'lazy-image': lazy}]">
             <source v-if="imgSourceList" :srcset="imgSourceList.srcset" :media="imgSourceList.media">
-            <img :class="['image-tag', {'cover': cover}]" :src="imgSource" :alt="altText" :srcset="imgSourceSet">
+            <img :class="['media-img', {'cover': cover}]" :src="imgSource" :alt="altText" :srcset="imgSourceSet">
         </picture>
     </div>
 </template>

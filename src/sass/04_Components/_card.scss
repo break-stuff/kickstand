@@ -1,6 +1,7 @@
 @import "../00_Abstracts/index.scss";
 
 $card-border-radius: sm;
+$card-overlay-bg-color: color(black, base, 0.25);
 
 .card {
     display: flex;
@@ -11,46 +12,53 @@ $card-border-radius: sm;
     &.image {
         &-top {
             flex-direction: column;
-            .image-tag {
+
+            .media-img {
                 @include border-radius-top($card-border-radius);
             }
         }
 
         &-left {
             flex-direction: row;
-            .image-tag {
+
+            .media-img {
                 @include border-radius-left($card-border-radius);
             }
         }
 
         &-right {
             flex-direction: row-reverse;
-            .image-tag {
+
+            .media-img {
                 @include border-radius-right($card-border-radius);
             }
         }
 
         &-bottom {
             flex-direction: column-reverse;
-            .image-tag {
-                @include border-radius-left($card-border-radius);
+
+            .media-img {
+                @include border-radius-bottom($card-border-radius);
             }
         }
 
         &-overlay {
             .card-image {
                 position: relative;
-                .image-tag {
+
+                .media-img {
                     @include border-radius($card-border-radius);
                 }    
             }
 
             .card-body {
-                position: absolute;
-                top: 0;
-                right: 0;
+                background-color: $card-overlay-bg-color;
                 bottom: 0;
+                color: color(white);
                 left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
             }
         }
     }
@@ -58,7 +66,7 @@ $card-border-radius: sm;
     &.card-image {
         width: 100%;
 
-        .image-tag {
+        .media-img {
             width: 100%;
         }
     }
