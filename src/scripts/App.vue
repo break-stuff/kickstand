@@ -1,10 +1,9 @@
 <template>
     <div id="app">
         <breadcrumbs>
-          <breadcrumb-item url="/">Home</breadcrumb-item>
-          <breadcrumb-item url="/">About</breadcrumb-item>
-          <breadcrumb-item url="/" active>Test</breadcrumb-item>
-
+            <breadcrumb-item url="/">Home</breadcrumb-item>
+            <breadcrumb-item url="/">About</breadcrumb-item>
+            <breadcrumb-item url="/" active>Test</breadcrumb-item>
         </breadcrumbs>
         <h1>H1 Tag</h1>
         <h2>H2 Tag</h2>
@@ -61,8 +60,7 @@
             dismiss-icon="fas fa-times"
             alert-variation="primary"
             position="top"
-        >This is just a test for "top"!</alert> -->
-
+        >This is just a test for "top"!</alert>-->
         <div v-for="variation in variations" :key="'button-' + variation">
             <link-button :variation="variation">Button for {{ variation }}</link-button>
             <br>
@@ -129,7 +127,7 @@
             <br>
         </div>
         <div>
-            <link-button-group column expand>
+            <link-button-group column expanded>
                 <link-button variation="secondary" hollow>top</link-button>
                 <link-button variation="secondary" hollow>middle</link-button>
                 <link-button variation="secondary" hollow>bottom</link-button>
@@ -137,27 +135,68 @@
             <br>
             <br>
         </div>
-        <card style="max-width:18rem;" image-position="top">
-            <card-image source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg" lazy />
-            <card-body>
-                <h3>Test Card</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
-            </card-body>
-        </card>
-        <card style="max-width:50%;" image-position="left">
-            <card-image source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg" lazy cover />
-            <card-body>
-                <h3>Test Card</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
-            </card-body>
-        </card>
-        <card style="max-width:50%;color:white;" image-position="overlay">
-            <card-image source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg" lazy />
-            <card-body position="top">
-                <h3>Test Card</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
-            </card-body>
-        </card>
+        <p>
+            <card style="max-width:18rem;" image-position="top">
+                <card-image
+                    source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg"
+                    lazy
+                />
+                <card-body>
+                    <h3>Test Card</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                </card-body>
+            </card>
+        </p>
+        <p>
+            <card style="max-width:18rem;" image-position="bottom">
+                <card-image
+                    source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg"
+                    lazy
+                />
+                <card-body>
+                    <h3>Test Card</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                </card-body>
+            </card>
+        </p>
+        <p>
+            <card style="max-width:50%;" image-position="left">
+                <card-image
+                    source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg"
+                    lazy
+                    cover
+                />
+                <card-body>
+                    <h3>Test Card</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                </card-body>
+            </card>
+        </p>
+        <p>
+            <card style="max-width:50%;" image-position="right">
+                <card-image
+                    source="https://pbs.twimg.com/profile_images/438889890315378689/LD8sjmQ_.jpeg"
+                    lazy
+                    cover
+                />
+                <card-body>
+                    <h3>Test Card</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                </card-body>
+            </card>
+        </p>
+        <p>
+            <card style="max-width:50%;color:white;" image-position="overlay">
+                <card-image
+                    source="https://tse1.mm.bing.net/th?id=OIP.BFHqtcqZdlrdG0MgWUWI6QHaJl&pid=Api"
+                    lazy
+                />
+                <card-body position="top">
+                    <h3>Test Card</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                </card-body>
+            </card>
+        </p>
     </div>
 </template>
 
@@ -200,13 +239,7 @@ export default class App extends Vue {
         'link'
     ];
 
-    sizes = [
-      'xs', 
-      'sm', 
-      'md', 
-      'lg', 
-      'xl'
-    ];
+    sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
 
     alertIsShown = false;
 

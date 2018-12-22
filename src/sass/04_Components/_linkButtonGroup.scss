@@ -1,8 +1,10 @@
 @import "../00_Abstracts/index";
 
+$link-button-group-border-radius: sm;
+
 .link-button-group {
     display: inline-flex;
-    @include border-radius(sm);
+    @include border-radius($link-button-group-border-radius);
     @include box-shadow(sm);
 
     .button {
@@ -12,11 +14,11 @@
     }
 
     .button:first-child {
-        @include border-radius-left(sm);
+        @include border-radius-left($link-button-group-border-radius);
     }
 
     .button:last-child {
-        @include border-radius-right(sm);
+        @include border-radius-right($link-button-group-border-radius);
     }
 
     &:not(.column) {
@@ -29,16 +31,16 @@
         flex-direction: column;
 
         .button+.button {
-            margin-bottom: -0.125rem;
+            @include mb(-xxs);
         }
 
         .button:first-child {
-            margin-bottom: -0.125rem;
-            @include border-radius-top(sm);
+            @include mb(-xxs);
+            @include border-radius-top($link-button-group-border-radius);
         }
     
         .button:last-child {
-            @include border-radius-bottom(sm);
+            @include border-radius-bottom($link-button-group-border-radius);
         }
     }
 
