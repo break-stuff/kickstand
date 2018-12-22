@@ -1,5 +1,7 @@
 @import "../00_Abstracts/index.scss";
 
+$breadcrumb-separator: "/" !default;
+
 .breadcrumbs {
     background-color: color(light);
     @include p(md);
@@ -12,7 +14,7 @@
             display: inline-block;
             @include pr(sm);
             color: color(black);
-            content: "/";
+            content: $breadcrumb-separator;
         }
     }
 }
