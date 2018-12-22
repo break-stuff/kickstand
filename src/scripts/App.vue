@@ -197,6 +197,74 @@
                 </card-body>
             </card>
         </p>
+        <p>
+            <card-group>
+                <card image-position="top">
+                    <card-image
+                        source="http://images4.fanpop.com/image/photos/16100000/Dwight-dwight-schrute-16100666-512-288.jpg"
+                        lazy
+                    />
+                    <card-body position="top">
+                        <h3>Test Card</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                    </card-body>
+                </card>
+                <card image-position="top">
+                    <card-image
+                        source="http://images4.fanpop.com/image/photos/16100000/Dwight-dwight-schrute-16100666-512-288.jpg"
+                        lazy
+                    />
+                    <card-body position="top">
+                        <h3>Test Card</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                    </card-body>
+                </card>
+                <card image-position="top">
+                    <card-image
+                        source="http://images4.fanpop.com/image/photos/16100000/Dwight-dwight-schrute-16100666-512-288.jpg"
+                        lazy
+                    />
+                    <card-body position="top">
+                        <h3>Test Card</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                    </card-body>
+                </card>
+            </card-group>
+        </p>
+        <p>
+            <card-group gutters>
+                <card image-position="top">
+                    <card-image
+                        source="http://images4.fanpop.com/image/photos/16100000/Dwight-dwight-schrute-16100666-512-288.jpg"
+                        lazy
+                    />
+                    <card-body position="top">
+                        <h3>Test Card</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                    </card-body>
+                </card>
+                <card image-position="top">
+                    <card-image
+                        source="http://images4.fanpop.com/image/photos/16100000/Dwight-dwight-schrute-16100666-512-288.jpg"
+                        lazy
+                    />
+                    <card-body position="top">
+                        <h3>Test Card</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, eligendi soluta? Animi earum veniam error doloribus voluptas sed ratione nemo odio numquam laboriosam deserunt deleniti eum nisi, dolor recusandae dolorum!</p>
+                    </card-body>
+                </card>
+                <card image-position="top">
+                    <card-image
+                        source="http://images4.fanpop.com/image/photos/16100000/Dwight-dwight-schrute-16100666-512-288.jpg"
+                        lazy
+                    />
+                    <card-body position="top">
+                        <h3>Test Card</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    </card-body>
+                </card>
+            </card-group>
+        </p>
     </div>
 </template>
 
@@ -207,7 +275,7 @@ import Alert from './components/Alert';
 import { Breadcrumbs, BreadcrumbItem } from './components/Breadcrumbs';
 import MediaImage from './components/Media';
 import { LinkButton, LinkButtonGroup } from './components/LinkButton';
-import { Card, CardImage, CardBody } from './components/Card';
+import { Card, CardImage, CardGroup, CardBody } from './components/Card';
 
 @Component({
     components: {
@@ -220,6 +288,7 @@ import { Card, CardImage, CardBody } from './components/Card';
         LinkButtonGroup,
         Card,
         CardImage,
+        CardGroup,
         CardBody
     }
 })

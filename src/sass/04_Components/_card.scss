@@ -6,7 +6,7 @@ $card-overlay-bg-color: color(black, base, 0.25);
 .card {
     display: flex;
     position: relative;
-    border: solid 1px color(dark, lighter);
+    border: solid 0.125rem color(light, darker);
     @include border-radius($card-border-radius);
 
     &.image {
@@ -95,5 +95,44 @@ $card-overlay-bg-color: color(black, base, 0.25);
                 justify-content: space-between;
             }
         }
+    }
+}
+
+.card-group {
+    display: inline-flex;
+
+    &.gutters {
+        justify-content: space-between;
+
+        .card+.card {
+            @include ml(lg);
+        }
+    }
+
+    &.no-gutters {
+        .card {
+            margin: 0;
+            border-radius: 0;
+
+            &:first-child {
+                @include border-radius-left($card-border-radius);
+            }
+
+            &:last-child {
+                @include border-radius-right($card-border-radius);
+            }
+        }
+
+        .card+.card {
+            @include ml(-xxs);
+
+            .media-img {
+                @include border-radius(none);
+            }
+        }
+    }
+
+    .card {
+        flex: 1 0 0%;
     }
 }
