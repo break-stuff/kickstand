@@ -1,5 +1,5 @@
 <template>
-    <div :class="['link-button-group', {'column': column}, {'expand': expand}]">
+    <div :class="['link-button-group', {'column': column}, {'expanded': expanded}]">
         <slot></slot>
     </div>
 </template>
@@ -14,7 +14,7 @@ export default class LinkButtonGroup extends Vue {
     private column!: boolean;
 
     @Prop(Boolean) 
-    private expand!: boolean;
+    private expanded!: boolean;
 
     // data
 
