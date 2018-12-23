@@ -1,10 +1,12 @@
 <template>
     <div id="app">
+        <h2 id="breadcrumbs">Breadcrumbs</h2>
         <breadcrumbs>
             <breadcrumb-item url="/">Home</breadcrumb-item>
             <breadcrumb-item url="/">About</breadcrumb-item>
             <breadcrumb-item url="/" active>Test</breadcrumb-item>
         </breadcrumbs>
+        <h2 id="typography">Typography</h2>
         <h1>H1 Tag</h1>
         <h2>H2 Tag</h2>
         <h3>H3 Tag</h3>
@@ -12,6 +14,7 @@
         <h5>H5 Tag</h5>
         <h6>H6 Tag</h6>
         <br>
+        <h2 id="alerts">Alerts</h2>
         <button class="button primary" @click="toggleAlert">Toggle Alert</button>
         <br>
         <br>
@@ -33,34 +36,20 @@
             alert-variation="primary"
             position="bottom-left"
         >This is just a test for "bottom-left"!</alert>
-        <!-- <alert
-            :dismissible="true"
-            alert-icon="fas fa-exclamation-triangle"
-            dismiss-icon="fas fa-times"
-            alert-variation="primary"
-            position="bottom-right"
-        >This is just a test for "bottom-right"!</alert>
-        <alert
-            :dismissible="true"
-            alert-icon="fas fa-exclamation-triangle"
-            dismiss-icon="fas fa-times"
-            alert-variation="primary"
-            position="top-right"
-        >This is just a test for "top-right"!</alert>
-        <alert
-            :dismissible="true"
-            alert-icon="fas fa-exclamation-triangle"
-            dismiss-icon="fas fa-times"
-            alert-variation="primary"
-            position="top-left"
-        >This is just a test for "top-left"!</alert>
-        <alert
-            :dismissible="true"
-            alert-icon="fas fa-exclamation-triangle"
-            dismiss-icon="fas fa-times"
-            alert-variation="primary"
-            position="top"
-        >This is just a test for "top"!</alert>-->
+        <h2 id="badges">Badges</h2>
+        <p>
+            <badge v-for="variation in variations" :key="'badge-' + variation" :variation="variation">{{ variation }}</badge>
+        </p>
+        <p>
+            <badge v-for="variation in variations" :key="'badge-hollow-' + variation" :variation="variation" hollow>{{ variation }}</badge>
+        </p>
+        <p>
+            <badge v-for="variation in variations" :key="'badge-pill-' + variation" :variation="variation" pill>{{ variation }}</badge>
+        </p>
+        <p>
+            <badge v-for="variation in variations" :key="'badge-pill-hollow-' + variation" :variation="variation" pill hollow>{{ variation }}</badge>
+        </p>
+        <h2 id="buttons">Buttons</h2>
         <div v-for="variation in variations" :key="'button-' + variation">
             <link-button :variation="variation">Button for {{ variation }}</link-button>
             <br>
@@ -135,6 +124,7 @@
             <br>
             <br>
         </div>
+        <h2 id="cards">Cards</h2>
         <p>
             <card style="max-width:18rem;" image-position="top">
                 <card-image
@@ -265,6 +255,7 @@
                 </card>
             </card-group>
         </p>
+        
     </div>
 </template>
 
@@ -272,6 +263,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import HelloWorld from './components/HelloWorld.vue';
 import Alert from './components/Alert';
+import Badge from './components/Badge';
 import { Breadcrumbs, BreadcrumbItem } from './components/Breadcrumbs';
 import MediaImage from './components/Media';
 import { LinkButton, LinkButtonGroup } from './components/LinkButton';
@@ -281,6 +273,7 @@ import { Card, CardImage, CardGroup, CardBody } from './components/Card';
     components: {
         HelloWorld,
         Alert,
+        Badge,
         Breadcrumbs,
         BreadcrumbItem,
         MediaImage,
